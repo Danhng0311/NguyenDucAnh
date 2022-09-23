@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="List" method="post" onsubmit="return checkForm()">
+            ID: <input type="text" name="txtId" id="txtId"/><br/>
+            Name: <input type="text" name="txtName" id="txtName"/><br/>
+            Gender: <input type="radio" name="rbGender" value="male"/> Male
+            <input type="radio" name="rbGender" value="female" checked/> female<br/>
+            DOB: <input type="text" name="txtDob" id="txtDob"/><br/>
+            <input type="submit" value="Create"/>
+        </form>
+    </body>
+    <script>
+        function checkForm(){
+            var id = document.getElementById("txtId").value;
+            var name = document.getElementById("txtName").value;
+            var dob = document.getElementById("txtDob").value;
+            
+            var msg = "";
+            var pattern = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
+            var flag = true;
+            
+            if(id.length === 0){
+                msg += "ID not empty.\n";
+                flag = false;
+            }
+            if(name.length === 0){
+                msg += "Name not empty.\n";
+                flag = false;
+            }
+            
+            if(pattern.test(dob)===false){
+                msg += "DOB invalid format. Ex: yyyy/MM/dd.\n";
+                flag = false;
+            }
+            
+            if(flag===false){
+                alert(msg);
+                return false;
+            }
+            return true;
+        }
+    </script>
+</html>
