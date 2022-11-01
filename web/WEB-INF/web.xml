@@ -173,7 +173,7 @@
             30
         </session-timeout>
     </session-config>
-    <!--    <error-page>
+<!--    <error-page>
         <error-code>404</error-code>
         <location>/Error.jsp</location>
     </error-page>

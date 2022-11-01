@@ -36,6 +36,6 @@
                         <a href="<%=request.getContextPath()%>/dashboard.jsp"><li>Dashboard</li></a>
                         <a href="<%=request.getContextPath()%>/order_admin"><li>Orders</li></a>
                         <a href="<%=request.getContextPath()%>/manage_product"><li>Products</li></a>
-                        <a href="#"><li>Customers</li></a>
+                        <a href="#" ><li>Customers</li></a>
                     </ul>
                 </div>

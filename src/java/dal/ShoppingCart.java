@@ -31,7 +31,7 @@ public class ShoppingCart {
         this.items = items;
     }
 
-    private ItemAddToCart getItemById(int Id) {
+    public ItemAddToCart getItemById(int Id) {
         for (ItemAddToCart item : items) {
             if (item.getProduct().getProductID() == Id) {
                 return item;

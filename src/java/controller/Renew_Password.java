@@ -64,9 +64,9 @@ public class Renew_Password extends HttpServlet {
         }
         Account aD = new AccountDAO().getAccountByEmail(emailF);
         if(aD != null) {
-            Email e = new Email();
+            Email e = new Email();  
             e.setFrom("ducanhng0311@gmail.com");
-            e.setFromPassword("123@123a");
+            e.setFromPassword("danh142002");
             e.setTo(emailF);
             e.setSubject("Forgot Password - New Password");
             StringBuilder sb = new StringBuilder();

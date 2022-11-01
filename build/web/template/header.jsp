@@ -1,4 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="models.*" %>
+<%@page import="dal.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -155,13 +159,7 @@
                             <button type="submit">SEARCH</button>     
                         </div>
                     </form>
-                    <%
-                        if(request.getAttribute("msg") != null) {
-                    %> 
-                    <span class="msg-error">
-                        <% out.println(request.getAttribute("msg"));%>
-                    </span><br/>
-                    <%}%>
+                    
                 </div>
                 <div id="banner">
                     <ul>
@@ -188,8 +186,8 @@
                         <%
                             if(session.getAttribute("AccSession")==null){
                         %>
-                        <li><a href="<%=path%>/account/signin">SignIn</a></li>
-                        <li><a href="<%=path%>/account/signup">SignUp</a></li>
+                        <li><a href="<%=path%>/account/signin" >SignIn</a></li>
+                        <li><a href="<%=path%>/account/signup" >SignUp</a></li>
                             <% }else{
                            
                             %>

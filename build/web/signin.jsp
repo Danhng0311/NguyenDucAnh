@@ -4,7 +4,7 @@
     <div id="form">
 
         <div id="form-title"
-             <span><a href="signup">SIGN UP</a></span>
+             <span><a href="signup" style="color: black; text-decoration: none; font-weight: bold" >SIGN UP</a></span>
             <span><a href="signin" style="color: red;">SIGN IN</a></span>
         </div>
         <div id="form-content">

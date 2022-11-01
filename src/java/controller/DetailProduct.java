@@ -23,12 +23,12 @@ public class DetailProduct extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         String idd = req.getParameter("id");
-        int id;
+        int id = 0;
         try {
             id = Integer.parseInt(idd);
             
         } catch (Exception e) {
-            id = 78;
+            resp.sendError(500);
         }
         
         try {

@@ -3,7 +3,26 @@
 <%@page import="models.*" %>
 <%@page import="dal.*" %>
 <%@include file="template/header.jsp" %>
+<script>
+    console.log("hiem");
 
+    function aebc() {
+        console.log("hiemanh");
+    }
+    function changeQuantityOnBlur(el) {
+
+        let inputs = Array.from(document.getElementsByName("quantityT"));
+        let num;
+        inputs.forEach(input => {
+            if (input.id == el.id) {
+                num = input.value;
+                return;
+            }
+        });
+        let id = el.id;
+        window.location = "addToCart?idC=" + id + "&num=" + num;
+    }
+</script>
 <div id="content">
     <div id="cart">
         <div id="cart-title">
@@ -21,7 +40,7 @@
                                     <img src="img/1.jpg"/>
                                 </div>
                                 <div class="cart-item-name">
-                                    <a href="detail?id=1">${p.getProduct().getProductName()}</a>
+                                    <a href="detail?id=${p.getProduct().getProductID()}" style="text-decoration: none">${p.getProduct().getProductName()}</a>
                                 </div>
                                 <div class="cart-item-price">
                                     ${p.getProduct().getUnitPrice() * p.quantity}$
@@ -36,7 +55,8 @@
                             <div class="cart-item-function">
                                 <a href="amount?num=-1&id=${p.getProduct().getProductID()}">-</a>  
                                 <a href="amount?num=1&id=${p.getProduct().getProductID()}">+</a>
-                                <input type="text" value="${p.quantity}"/>
+                                <input id="${p.getProduct().getProductID()}" type="number" name="quantityT" onblur="changeQuantityOnBlur(this)" value="${p.quantity}"/>
+
                             </div>
                         </div>
 
@@ -56,7 +76,7 @@
                                     <img src="img/1.jpg"/>
                                 </div>
                                 <div class="cart-item-name">
-                                    <a href="detail?id=1">${p.getProduct().getProductName()}</a>
+                                    <a href="detail?id=${p.getProduct().getProductID()}" style="text-decoration: none">${p.getProduct().getProductName()}</a>
                                 </div>
                                 <div class="cart-item-price">
                                     ${p.getProduct().getUnitPrice() * p.quantity}$
@@ -71,7 +91,10 @@
                             <div class="cart-item-function">
                                 <a href="amount?num=-1&id=${p.getProduct().getProductID()}">-</a>  
                                 <a href="amount?num=1&id=${p.getProduct().getProductID()}">+</a>
-                                <input type="number" name="quantityT" value="${p.quantity}"/>
+                                <div>
+                                    <input id="${p.getProduct().getProductID()}" type="number" name="quantityT" onblur="changeQuantityOnBlur(this)" value="${p.quantity}"/>
+
+                                </div>
                             </div>
                         </div>
 
@@ -210,4 +233,5 @@
 
 
 <%@include file="template/footer.jsp" %>
+
 

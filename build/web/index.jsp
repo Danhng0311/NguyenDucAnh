@@ -70,7 +70,7 @@
     for(Product p: listN) {
             %>
             <div class="product">
-                <a href="detail.jsp"><img src="img/1.jpg" width="100%"/></a>
+                 <a href="detail?id=<%=p.getProductID()%>"><img src="img/1.jpg" width="100%"/></a>
                 <div class="name"><a href="detail?id=<%=p.getProductID()%>"><%=p.getProductName()%></a></div>
                 <div class="price">$<%=p.getUnitPrice()%></div>
                 <div><a href="buy?id=<%=p.getProductID()%>">Buy now</a></div>

@@ -143,8 +143,8 @@ public class SearchProduct extends HttpServlet {
 //            ArrayList<Product> products = new ProductDAO().search(s);    
                     int count = p.count(search2);
                     if (count == 0) {
-                        req.setAttribute("msg", "Your information which you SEARCH is not available");
-                        req.getRequestDispatcher("index.jsp").forward(req, resp);
+                        req.setAttribute("msg", "0 Produdcts to be found");
+                        req.getRequestDispatcher("ListProSearch.jsp").forward(req, resp);
                         //req.getRequestDispatcher("list-product").forward(req, resp);
                     }
 

@@ -13,6 +13,14 @@
     <div class="path">List of Products after Search</div>
 
     <div class="content-main2">
+        <%
+        if(request.getAttribute("msg") != null) {
+        %> 
+        <span class="msg-error">
+            <img style="width: 100%" src="img/product_not_found2.png" alt=""/>
+            
+        </span><br/>
+        <%}%>
         <c:forEach items="${products}" var="p">
             <div class="product">
                 <a href="detail?id=${p.getProductID()}"><img src="img/1.jpg" width="100%"/></a>

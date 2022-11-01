@@ -22,18 +22,19 @@ import javax.mail.internet.MimeMessage;
 public class SendMail {
 
     public static void send(Email email) {
-
+        String fromEmail = "danhmatdam@gmail.com";
+        String password = "Danh142002";
         // Get properties object
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-//        props.put("mail.smtp.socketFactory.port", MailConfig.SSL_PORT);
-//        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.port", "587");
-        props.put("mail.smtp.starttls.enable", "true");
+        Properties pr = new Properties();
+        pr.setProperty("mail.smtp.host", "smtp.gmail.com");
+        pr.setProperty("mail.smtp.port", "587");
+        pr.setProperty("mail.smtp.auth", "true");
+        pr.setProperty("mail.smtp.starttls.enable", "true");
+        pr.put("mail.smtp.socketFactory.port", "587");
+        pr.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
         // get Session
-        Session session = Session.getInstance(props, new Authenticator() {
+        Session session = Session.getInstance(pr, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(email.getFrom(), email.getFromPassword());
@@ -60,5 +61,4 @@ public class SendMail {
         }
     }
 
-    
 }
